@@ -2,7 +2,6 @@
 
 Control [Hoverboard-Firmware-Hack-Gen2.x](https://github.com/RoboDurden/Hoverboard-Firmware-Hack-Gen2.x) with a Raspberry Pi or any Linux/macOS system using a joystick. This project could also be adapted to other firmware, such as [hoverboard-firmware-hack-FOC](https://github.com/EFeru/hoverboard-firmware-hack-FOC).
 
-Control  with a Raspberry Pi or any Linux/macOS system using a joystick. Could be adapted to other firmwares like 
 ## Why do you want this?
 Why waste a Raspberry Pi 5 with 8 GB of RAM to control a hoverboard? Maybe it doesn’t make sense for a final project, but it can be useful when testing motors and controllers on your bench.
 
@@ -27,7 +26,7 @@ A Raspberry Pi has built-in UARTs that can be used. If you're using a Mac or ano
 I've only tested on Raspberry Pi 5.
 
 ### Mac
-`brew install sdl2`
+`brew install sdl2 cmake pkg-config`
 
 ## Building
 ```sh
