@@ -7,6 +7,7 @@
 #include <string.h>
 #include <getopt.h>
 #include "hoverserial.h"
+#include <signal.h>
 
 #define DEFAULT_BAUD B19200
 #define DEFAULT_JOYSTICK 0
@@ -84,6 +85,12 @@ void handleEvents(int axis_speed, int button_arm, int fd)
         fflush(stdout);
         SDL_Delay(10); // avoid maxing out CPU
     }
+}
+
+void handle_sigint(int sig) {
+    SDL_Event quit;
+    quit.type = SDL_QUIT;
+    SDL_PushEvent(&quit);
 }
 
 /**
@@ -215,7 +222,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    signal(SIGINT, handle_sigint);
+
     handleEvents(axis_speed, button_arm, fd);
+
     SDL_JoystickClose(joystick);
     SDL_Quit();
     return 0;
